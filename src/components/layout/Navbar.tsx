@@ -36,8 +36,8 @@ export default function Navbar() {
         visible ? "translate-y-0" : "-translate-y-full"
       } ${
         transparent
-          ? "bg-black/30 backdrop-blur-md"
-          : "bg-neutral-950 border-b border-neutral-800"
+          ? "bg-secondary backdrop-blur-md"
+          : "bg-secondary border-b border-neutral-800"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -52,13 +52,22 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 text-sm text-neutral-300">
-          <Link href="/projects" className="hover:text-white transition-colors">
+          <Link
+            href="/projects"
+            className="hover:bg-brand-hover transition-colors px-3 py-2 rounded"
+          >
             Projects
           </Link>
-          <Link href="/about" className="hover:text-white transition-colors">
+          <Link
+            href="/about"
+            className="hover:bg-brand-hover transition-colors px-3 py-2 rounded"
+          >
             About
           </Link>
-          <Link href="/contact" className="hover:text-white transition-colors">
+          <Link
+            href="/contact"
+            className="hover:bg-brand-hover transition-colors px-3 py-2 rounded"
+          >
             Contact
           </Link>
         </div>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="pt-24 pb-20">
+    <section className="pt-24 pb-20 bg-bg-secondary">
       <div className="grid md:grid-cols-2 gap-14 items-center">
         {/* Left - Text */}
         <div className="space-y-6">
@@ -33,20 +33,22 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-
         {/* Right - Floating Image */}
-        <div className="relative hidden md:flex justify-center">
-          <div className="relative w-[340px] h-[420px] rounded-2xl overflow-hidden border border-neutral-800 shadow-xl shadow-black/40">
-            {/* Glow background */}
-            <div className="absolute -inset-4 bg-brand-800/20 blur-3xl rounded-3xl -z-10" />
-
-            {/* Replace src with your image */}
+        <div className="relative flex justify-center mt-10 md:mt-0">
+          <div
+            className="relative w-[300px] sm:w-[340px] md:w-[360px] h-[380px] md:h-[440px] 
+                  rounded-2xl border border-neutral-700 
+                  bg-neutral-900/40 backdrop-blur-sm
+                  shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]
+                  transition-transform duration-500 ease-out
+                  hover:-translate-y-2"
+          >
             <Image
-              src="/profile.jpg"
+              src="/Juan.png"
               alt="Juan Lozano"
               fill
-              className="object-cover rounded-2xl"
               priority
+              className="object-cover rounded-2xl"
             />
           </div>
         </div>

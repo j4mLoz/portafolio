@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.className} bg-neutral-950 text-neutral-100`}>
+      <body className="bg-bg-primary text-text-primary">
         <div className="min-h-screen flex flex-col">
           <Navbar />
 

@@ -5,14 +5,18 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-brand-800: #065f46;
-  --color-brand-700: #15803d;
-  --color-brand-600: #16a34a;
+@theme {
+  --color-bg-primary: #f8f9fa;
+  --color-bg-secondary: #f2f2f2;
+  --color-surface: #eaeaea;
+  --color-border: #dcdcdc;
+
+  --color-text-primary: #111111;
+  --color-text-secondary: #5c5c5c;
+
+  --color-brand: #006b75;
+  --color-brand-hover: #00545c;
+  --color-brand-accent: #0a8c97;
 }
 
 @media (prefers-color-scheme: dark) {
