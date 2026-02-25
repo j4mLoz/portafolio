@@ -47,7 +47,6 @@ export default function Hero() {
               src="/Juan.png"
               alt="Juan Lozano"
               fill
-              priority
               className="object-cover rounded-2xl"
             />
           </div>
