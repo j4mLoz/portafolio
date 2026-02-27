@@ -132,7 +132,7 @@ export default function RootLayout({
                     </a>
 
                     <a
-                      href="https://www.linkedin.com/in/TU-LINK-REAL"
+                      href="https://www.linkedin.com/in/juan-lozano-9b97a83a8/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-text-secondary hover:text-brand transition-colors duration-200"
@@ -141,7 +141,7 @@ export default function RootLayout({
                     </a>
 
                     <a
-                      href="mailto:tuemail@email.com"
+                      href="mailto:juan.lozaa2812@gmail.com"
                       className="text-text-secondary hover:text-brand transition-colors duration-200"
                     >
                       Email
