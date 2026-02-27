@@ -1,55 +1,54 @@
 import Link from "next/link";
 import Image from "next/image";
-
+import Reveal from "@/components/ui/Reveal";
 export default function Hero() {
   return (
-    <section className="pt-24 pb-20 bg-bg-secondary">
-      <div className="grid md:grid-cols-2 gap-14 items-center">
-        {/* Left - Text */}
-        <div className="space-y-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-            Building <span className="text-brand-800">scalable systems</span>{" "}
-            with clean architecture.
-          </h1>
+    <section className="py-36 border-b border-border">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <Reveal>
+            <div className="space-y-8 max-w-2xl">
+              <h1 className="text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight">
+                Building <span className="text-brand">scalable systems</span>{" "}
+                with clean architecture.
+              </h1>
 
-          <p className="text-neutral-400 text-lg max-w-lg">
-            FullStack Developer focused on structure, performance and real
-            impact.
-          </p>
+              <p className="text-text-secondary text-lg max-w-md">
+                FullStack Developer focused on structure, performance and real
+                product impact.
+              </p>
 
-          <div className="flex flex-wrap gap-4 pt-2">
-            <Link
-              href="/projects"
-              className="px-7 py-3 bg-brand-800 hover:bg-brand-700 transition-all duration-300 text-white font-medium rounded-lg"
-            >
-              Projects
-            </Link>
+              <div className="flex gap-5 pt-6">
+                <Link
+                  href="/projects"
+                  className="px-8 py-3 bg-brand hover:bg-brand-hover transition-colors duration-200 text-white rounded-lg"
+                >
+                  Projects
+                </Link>
 
-            <Link
-              href="/contact"
-              className="px-7 py-3 border border-neutral-700 hover:border-brand-800 hover:text-brand-800 transition-all duration-300 rounded-lg"
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
-        {/* Right - Floating Image */}
-        <div className="relative flex justify-center mt-10 md:mt-0">
-          <div
-            className="relative w-[300px] sm:w-[340px] md:w-[360px] h-[380px] md:h-[440px] 
-                  rounded-2xl border border-neutral-700 
-                  bg-neutral-900/40 backdrop-blur-sm
-                  shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]
-                  transition-transform duration-500 ease-out
-                  hover:-translate-y-2"
-          >
-            <Image
-              src="/Juan.png"
-              alt="Juan Lozano"
-              fill
-              className="object-cover rounded-2xl"
-            />
-          </div>
+                <Link
+                  href="/contact"
+                  className="px-8 py-3 border border-border hover:border-brand hover:text-brand transition-colors duration-200 rounded-lg"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-[360px] h-[460px]">
+                <Image
+                  src="/Juan.png"
+                  alt="Juan Lozano"
+                  fill
+                  className="object-cover rounded-2xl"
+                  priority
+                />
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

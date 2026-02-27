@@ -4,23 +4,18 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [transparent, setTransparent] = useState(true);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Transparencia cuando está arriba
-      setTransparent(currentScrollY < 40);
-
-      // Detectar dirección de scroll
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setVisible(false); // scroll down → ocultar
+        setVisible(false); // scroll down
       } else {
-        setVisible(true); // scroll up → mostrar
+        setVisible(true); // scroll up
       }
 
       setLastScrollY(currentScrollY);
@@ -32,41 +27,38 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 bg-bg-primary border-b border-border transition-transform duration-300 ease-out ${
         visible ? "translate-y-0" : "-translate-y-full"
-      } ${
-        transparent
-          ? "bg-secondary backdrop-blur-md"
-          : "bg-secondary border-b border-neutral-800"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl font-bold tracking-tight"
-          style={{ color: "#006B75" }}
+          className="text-lg font-semibold tracking-tight text-text-primary hover:text-brand transition-colors duration-200"
         >
-          JL
+          Juan Lozano
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 text-sm text-neutral-300">
+        <div className="hidden md:flex items-center gap-10 text-sm">
           <Link
-            href="/projects"
-            className="hover:bg-brand-hover transition-colors px-3 py-2 rounded"
+            href="/#projects"
+            className="text-text-secondary hover:text-text-primary transition-colors duration-200"
           >
             Projects
           </Link>
+
           <Link
-            href="/about"
-            className="hover:bg-brand-hover transition-colors px-3 py-2 rounded"
+            href="/#about"
+            className="text-text-secondary hover:text-text-primary transition-colors duration-200"
           >
             About
           </Link>
+
           <Link
             href="/contact"
-            className="hover:bg-brand-hover transition-colors px-3 py-2 rounded"
+            className="text-text-secondary hover:text-text-primary transition-colors duration-200"
           >
             Contact
           </Link>
@@ -74,39 +66,47 @@ export default function Navbar() {
 
         {/* Mobile Button */}
         <button
-          className="md:hidden text-neutral-300"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-text-primary"
         >
-          ☰
+          <div className="w-6 h-[2px] bg-text-primary mb-1"></div>
+          <div className="w-6 h-[2px] bg-text-primary mb-1"></div>
+          <div className="w-6 h-[2px] bg-text-primary"></div>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-neutral-950 border-t border-neutral-800 px-6 py-6 space-y-4">
+      <div
+        className={`md:hidden border-t border-border overflow-hidden transition-all duration-300 ${
+          open ? "max-h-60" : "max-h-0"
+        }`}
+      >
+        <div className="px-6 py-6 space-y-6 text-sm">
           <Link
-            href="/projects"
-            className="block text-neutral-300"
-            onClick={() => setMobileOpen(false)}
+            href="/#projects"
+            className="block text-text-secondary hover:text-text-primary transition-colors duration-200"
+            onClick={() => setOpen(false)}
           >
             Projects
           </Link>
+
           <Link
             href="/about"
-            className="block text-neutral-300"
-            onClick={() => setMobileOpen(false)}
+            className="block text-text-secondary hover:text-text-primary transition-colors duration-200"
+            onClick={() => setOpen(false)}
           >
             About
           </Link>
+
           <Link
             href="/contact"
-            className="block text-neutral-300"
-            onClick={() => setMobileOpen(false)}
+            className="block text-text-secondary hover:text-text-primary transition-colors duration-200"
+            onClick={() => setOpen(false)}
           >
             Contact
           </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
