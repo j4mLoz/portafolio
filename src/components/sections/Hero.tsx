@@ -20,7 +20,7 @@ export default function Hero() {
 
               <div className="flex gap-5 pt-6">
                 <Link
-                  href="/projects"
+                  href="/#projects"
                   className="px-8 py-3 bg-brand hover:bg-brand-hover transition-colors duration-200 text-white rounded-lg"
                 >
                   Projects
