@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendTelegramMessage } from "@/lib/telegram";
 
+function detectDevice(ua: string) {
+  if (/iphone/i.test(ua)) return "iPhone";
+  if (/android/i.test(ua)) return "Android";
+  if (/ipad/i.test(ua)) return "iPad";
+  if (/windows/i.test(ua)) return "Desktop Windows";
+  if (/mac/i.test(ua)) return "Desktop Mac";
+  return "Desconocido";
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { event } = await req.json();
@@ -18,12 +27,28 @@ export async function POST(req: NextRequest) {
     const userAgent = req.headers.get("user-agent") || "Desconocido";
 
     const message = `
-NEW LOG 🚀
-Ip: ${ip}
-Dispositivo: ${userAgent}
-Evento: ${event}
-Fecha: ${new Date().toLocaleString()}
-    `;
+🆕 <b>NEW LOG - Portfolio Event</b>
+
+👤 <b>User Agent</b>
+${userAgent}
+
+──────────────
+
+📱 <b>Dispositivo</b>
+${detectDevice(userAgent)}
+
+🌍 <b>IP</b>
+${ip}
+
+🎯 <b>Evento</b>
+${event}
+
+🕒 <b>Fecha</b>
+${new Date().toLocaleString()}
+
+──────────────
+🌐 juanlozano.dev
+`;
 
     await sendTelegramMessage(message);
 

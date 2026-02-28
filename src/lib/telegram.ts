@@ -13,6 +13,7 @@ export async function sendTelegramMessage(text: string) {
     },
     body: JSON.stringify({
       chat_id: chatId,
+      parse_mode: "HTML",
       text,
     }),
   });
