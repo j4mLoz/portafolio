@@ -1,6 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+
+const logEvent = async (event: string) => {
+  try {
+    await fetch("/api/log", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ event }),
+    });
+  } catch (error) {
+    console.error("Error enviando log");
+  }
+};
+
 export default function Hero() {
   return (
     <section className="py-36 border-b border-border">
@@ -29,6 +44,9 @@ export default function Hero() {
                 <Link
                   href="/contact"
                   className="px-8 py-3 border border-border hover:border-brand hover:text-brand transition-colors duration-200 rounded-lg"
+                  onClick={() => {
+                    logEvent("Hero - Click Contacto");
+                  }}
                 >
                   Contact
                 </Link>
