@@ -46,7 +46,7 @@ export default function Hero() {
                   href="/contact"
                   className="px-8 py-3 border border-border hover:border-brand hover:text-brand transition-colors duration-200 rounded-lg"
                   onClick={() => {
-                    logEvent("Hero - Click Contacto");
+                    logEvent("Click_Contacto_Hero");
                   }}
                 >
                   Contact

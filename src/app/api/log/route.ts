@@ -27,27 +27,16 @@ export async function POST(req: NextRequest) {
     const userAgent = req.headers.get("user-agent") || "Desconocido";
 
     const message = `
-🆕 <b>NEW LOG - Portfolio Event</b>
+#############################
 
-👤 <b>User Agent</b>
-${userAgent}
+[+] <strong>Event:</strong> ${event}
 
-──────────────
-
-📱 <b>Dispositivo</b>
-${detectDevice(userAgent)}
-
-🌍 <b>IP</b>
-${ip}
-
-🎯 <b>Evento</b>
-${event}
-
-🕒 <b>Fecha</b>
-${new Date().toLocaleString()}
-
-──────────────
-🌐 juanlozano.dev
+━━━━━━<strong>Client</strong>━━━━━━
+[+] <strong>IP: </strong> ${ip}
+[+] <strong>Device:</strong>  ${detectDevice(userAgent)}
+[+] <strong> Fecha/Hora:</strong>  ${new Date().toLocaleString()}
+[+] <strong> User/Agent:</strong>  ${userAgent}
+#############################
 `;
 
     await sendTelegramMessage(message);
