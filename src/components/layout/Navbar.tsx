@@ -1,5 +1,6 @@
 "use client";
 
+import { logEvent } from "@/lib/logger";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -35,6 +36,13 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
+          onClick={() =>
+            logEvent({
+              section: "navbar",
+              action: "click",
+              label: "logo",
+            })
+          }
           className="text-lg font-semibold tracking-tight text-text-primary hover:text-brand transition-colors duration-200"
         >
           Juan Lozano

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import { getRepos } from "@/lib/github";
+import ProjectGithubLink from "@/components/ProjectGithubLink";
 
 const featured = [
   {
@@ -74,13 +75,10 @@ export default async function FeaturedProjects() {
                   </p>
 
                   <div className="border-t border-border pt-4 flex items-center justify-between text-sm">
-                    <a
-                      href={project.html_url}
-                      target="_blank"
-                      className="hover:text-brand transition-colors duration-200"
-                    >
-                      GitHub →
-                    </a>
+                    <ProjectGithubLink
+                      url={project.html_url}
+                      repoName={project.repoName}
+                    />
 
                     <span className="text-text-secondary">
                       ⭐ {project.stargazers_count || 0}

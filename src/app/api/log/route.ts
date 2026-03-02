@@ -12,14 +12,14 @@ function detectDevice(ua: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const { event } = await req.json();
+    const body = await req.json();
+    const { section, action, label } = body;
 
-    if (!event) {
-      return NextResponse.json(
-        { error: "Evento no proporcionado" },
-        { status: 400 },
-      );
+    if (!section || !action || !label) {
+      return NextResponse.json({ error: "Datos incompletos" }, { status: 400 });
     }
+
+    const event = `${section}.${action}.${label}`;
 
     const ip =
       req.headers.get("x-forwarded-for")?.split(",")[0] || "IP desconocida";
@@ -34,8 +34,8 @@ export async function POST(req: NextRequest) {
 ━━━━━━<strong>Client</strong>━━━━━━
 [+] <strong>IP: </strong> ${ip}
 [+] <strong>Device:</strong>  ${detectDevice(userAgent)}
-[+] <strong> Fecha/Hora:</strong>  ${new Date().toLocaleString()}
-[+] <strong> User/Agent:</strong>  ${userAgent}
+[+] <strong>Fecha/Hora:</strong>  ${new Date().toLocaleString()}
+[+] <strong>User/Agent:</strong>  ${userAgent}
 #############################
 `;
 
