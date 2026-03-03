@@ -4,7 +4,11 @@ import { logEvent } from "@/lib/logger";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export default function Navbar() {
+interface NavbarProps {
+  onContactClick: () => void;
+}
+
+export default function Navbar({ onContactClick }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -64,12 +68,12 @@ export default function Navbar() {
             About
           </Link>
 
-          <Link
-            href="/contact"
-            className="text-text-secondary hover:text-text-primary transition-colors duration-200"
+          <button
+            onClick={onContactClick}
+            className="text-text-secondary hover:text-brand transition-colors duration-200"
           >
             Contact
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Button */}
@@ -106,13 +110,12 @@ export default function Navbar() {
             About
           </Link>
 
-          <Link
-            href="/contact"
-            className="block text-text-secondary hover:text-text-primary transition-colors duration-200"
-            onClick={() => setOpen(false)}
+          <button
+            onClick={onContactClick}
+            className="text-text-secondary hover:text-brand transition-colors duration-200"
           >
             Contact
-          </Link>
+          </button>
         </div>
       </div>
     </nav>
