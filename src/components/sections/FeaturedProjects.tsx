@@ -36,7 +36,6 @@ export default async function FeaturedProjects() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
           <div className="mb-20">
-            <p className="text-sm text-text-secondary mb-3">Selected Work</p>
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
               Featured Projects
             </h2>
