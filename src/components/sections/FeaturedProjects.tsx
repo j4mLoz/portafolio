@@ -5,14 +5,14 @@ import ProjectGithubLink from "@/components/ProjectGithubLink";
 
 const featured = [
   {
-    repoName: "portafolio",
-    image: "/projects/portafolio.png",
-    label: "FullStack Architecture",
-  },
-  {
     repoName: "miyo",
     image: "/projects/miyo.png",
     label: "Finance Application",
+  },
+  {
+    repoName: "portafolio",
+    image: "/projects/portafolio.png",
+    label: "FullStack Architecture",
   },
 ];
 
