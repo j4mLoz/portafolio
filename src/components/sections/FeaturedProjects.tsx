@@ -1,91 +1,93 @@
-import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import { getRepos } from "@/lib/github";
-import ProjectGithubLink from "@/components/ProjectGithubLink";
+import Image from "next/image";
+import { Github, ArrowUpRight } from "lucide-react";
 
-const featured = [
-  {
-    repoName: "miyo",
+export default function FeaturedProjects() {
+  const project = {
+    title: "MIYO",
+    description: "Finance App.",
     image: "/projects/miyo.png",
-    label: "Finance Application",
-  },
-  {
-    repoName: "portafolio",
-    image: "/projects/portafolio.png",
-    label: "FullStack Architecture",
-  },
-];
-
-export default async function FeaturedProjects() {
-  const repos = await getRepos();
-
-  const selectedRepos = featured.map((item) => {
-    const repoData = repos.find((repo: any) => repo.name === item.repoName);
-
-    return {
-      ...item,
-      ...repoData,
-    };
-  });
+    demo: "https://financemiyo.com",
+    github: "https://github.com/j4mLoz/miyo",
+  };
 
   return (
-    <section
-      id="projects"
-      className="border-t border-border py-32 scroll-mt-24"
-    >
+    <section id="projects" className="border-t border-border py-32">
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
-              Featured Projects
-            </h2>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-16">
+            Featured Project
+          </h2>
         </Reveal>
 
         <Reveal>
-          <div className="grid md:grid-cols-2 gap-16">
-            {selectedRepos.map((project: any, index: number) => (
-              <div
-                key={index}
-                className="group border border-border rounded-2xl overflow-hidden
-                           transition-all duration-300 ease-out
-                           hover:border-brand hover:-translate-y-1"
-              >
-                {/* Image Preview */}
-                <div className="relative h-64 w-full">
-                  <Image
-                    src={project.image}
-                    alt={project.repoName}
-                    fill
-                    className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
-                  />
-                </div>
+          <div
+            className="
+            group
+            border border-border
+            rounded-xl
+            overflow-hidden
+            transition-all duration-300
+            hover:border-brand
+            hover:-translate-y-1
+            hover:shadow-xl
+            "
+          >
+            {/* Preview */}
+            <div className="relative h-[340px] w-full overflow-hidden">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="
+                object-cover
+                transition-transform duration-500
+                group-hover:scale-105
+                "
+                priority
+              />
+            </div>
 
-                {/* Content */}
-                <div className="p-8 space-y-4">
-                  <span className="text-xs text-brand font-medium">
-                    {project.label}
-                  </span>
+            {/* Content */}
+            <div className="p-8 space-y-5">
+              <h3 className="text-xl font-semibold tracking-tight">
+                {project.title}
+              </h3>
 
-                  <h3 className="text-xl font-semibold">{project.name}</h3>
+              <p className="text-text-secondary leading-relaxed max-w-2xl">
+                {project.description}
+              </p>
 
-                  <p className="text-sm text-text-secondary leading-relaxed">
-                    {project.description || "No description available."}
-                  </p>
+              {/* Actions */}
+              <div className="flex items-center justify-between pt-4">
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  className="
+                  inline-flex items-center gap-2
+                  text-sm font-medium
+                  text-text-primary
+                  hover:text-brand
+                  transition-colors duration-200
+                  "
+                >
+                  View Project
+                  <ArrowUpRight size={16} />
+                </a>
 
-                  <div className="border-t border-border pt-4 flex items-center justify-between text-sm">
-                    <ProjectGithubLink
-                      url={project.html_url}
-                      repoName={project.repoName}
-                    />
-
-                    <span className="text-text-secondary">
-                      ⭐ {project.stargazers_count || 0}
-                    </span>
-                  </div>
-                </div>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  className="
+                  text-text-secondary
+                  hover:text-brand
+                  transition-colors duration-200
+                  "
+                >
+                  <Github size={20} />
+                </a>
               </div>
-            ))}
+            </div>
           </div>
         </Reveal>
       </div>

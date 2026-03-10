@@ -35,20 +35,6 @@ export default function Hero() {
                 >
                   Projects
                 </Link>
-
-                <Link
-                  href="/contact"
-                  className="px-8 py-3 border border-border hover:border-brand hover:text-brand transition-colors duration-200 rounded-lg"
-                  onClick={() =>
-                    logEvent({
-                      section: "Hero",
-                      action: "click",
-                      label: "contact_button",
-                    })
-                  }
-                >
-                  Contact
-                </Link>
               </div>
             </div>
           </Reveal>

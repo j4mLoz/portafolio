@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactModal from "@/components/ui/ContactModal";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export default function ClientLayout({
   children,
@@ -24,6 +25,7 @@ export default function ClientLayout({
       />
 
       <Footer onContactClick={() => setIsContactOpen(true)} />
+      <ScrollToTop />
     </>
   );
 }
