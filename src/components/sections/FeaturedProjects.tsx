@@ -1,95 +1,133 @@
 import Reveal from "@/components/ui/Reveal";
 import Image from "next/image";
-import { Github, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight, Send } from "lucide-react";
 
 export default function FeaturedProjects() {
-  const project = {
-    title: "MIYO",
-    description: "Finance App.",
-    image: "/projects/miyo.png",
-    demo: "https://financemiyo.com",
-    github: "https://github.com/j4mLoz/miyo",
-  };
+  const projects = [
+    {
+      title: "MIYO",
+      description: "Finance App.",
+      image: "/projects/miyo.png",
+      demo: "https://financemiyo.com",
+      github: "https://github.com/j4mLoz/miyo",
+    },
+    {
+      title: "m3nd0R$H",
+      description:
+        "Automation bots ecosystem currently in development. Follow the Telegram channel to stay updated with new releases and tools.",
+      image: "/projects/mendor.png",
+      telegram: "https://t.me/yourchannel",
+      comingSoon: true,
+    },
+  ];
 
   return (
     <section id="projects" className="border-t border-border py-32">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-16">
-            Featured Project
+            Featured Projects
           </h2>
         </Reveal>
 
-        <Reveal>
-          <div
-            className="
-            group
-            border border-border
-            rounded-xl
-            overflow-hidden
-            transition-all duration-300
-            hover:border-brand
-            hover:-translate-y-1
-            hover:shadow-xl
-            "
-          >
-            {/* Preview */}
-            <div className="relative h-[340px] w-full overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
+        <div className="grid md:grid-cols-2 gap-10 items-stretch">
+          {projects.map((project, index) => (
+            <Reveal key={index}>
+              <div
                 className="
-                object-cover
-                transition-transform duration-500
-                group-hover:scale-105
+                group
+                h-full
+                border border-border
+                rounded-xl
+                overflow-hidden
+                flex flex-col
+                transition-all duration-300
+                hover:border-brand
+                hover:-translate-y-1
+                hover:shadow-xl
                 "
-                priority
-              />
-            </div>
+              >
+                {/* Preview */}
+                <div className="relative h-[300px] w-full overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="
+                    object-cover
+                    transition-transform duration-500
+                    group-hover:scale-105
+                    "
+                    priority
+                  />
+                </div>
 
-            {/* Content */}
-            <div className="p-8 space-y-5">
-              <h3 className="text-xl font-semibold tracking-tight">
-                {project.title}
-              </h3>
+                {/* Content */}
+                <div className="p-8 flex flex-col flex-grow justify-between">
+                  {/* Top content */}
+                  <div className="space-y-5">
+                    <h3 className="text-xl font-semibold tracking-tight">
+                      {project.title}
+                    </h3>
 
-              <p className="text-text-secondary leading-relaxed max-w-2xl">
-                {project.description}
-              </p>
+                    <p className="text-text-secondary leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
 
-              {/* Actions */}
-              <div className="flex items-center justify-between pt-4">
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  className="
-                  inline-flex items-center gap-2
-                  text-sm font-medium
-                  text-text-primary
-                  hover:text-brand
-                  transition-colors duration-200
-                  "
-                >
-                  View Project
-                  <ArrowUpRight size={16} />
-                </a>
+                  {/* Actions */}
+                  <div className="flex items-center justify-between pt-8">
+                    {!project.comingSoon ? (
+                      <>
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          className="
+                          inline-flex items-center gap-2
+                          text-sm font-medium
+                          text-text-primary
+                          hover:text-brand
+                          transition-colors duration-200
+                          "
+                        >
+                          View Project
+                          <ArrowUpRight size={16} />
+                        </a>
 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  className="
-                  text-text-secondary
-                  hover:text-brand
-                  transition-colors duration-200
-                  "
-                >
-                  <Github size={20} />
-                </a>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          className="
+                          text-text-secondary
+                          hover:text-brand
+                          transition-colors duration-200
+                          "
+                        >
+                          <Github size={20} />
+                        </a>
+                      </>
+                    ) : (
+                      <a
+                        href={project.telegram}
+                        target="_blank"
+                        className="
+                        inline-flex items-center gap-2
+                        text-sm font-medium
+                        text-text-primary
+                        hover:text-brand
+                        transition-colors duration-200
+                        "
+                      >
+                        Follow Updates
+                        <Send size={16} />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </Reveal>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
