@@ -18,9 +18,9 @@ export default function Navbar({ onContactClick }: NavbarProps) {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setVisible(false); // scroll down
+        setVisible(false);
       } else {
-        setVisible(true); // scroll up
+        setVisible(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -32,7 +32,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 bg-bg-primary border-b border-border transition-transform duration-300 ease-out ${
+      className={`fixed top-0 left-0 w-full z-50 bg-brand border-b border-border transition-transform duration-300 ease-out ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -47,43 +47,41 @@ export default function Navbar({ onContactClick }: NavbarProps) {
               label: "logo",
             })
           }
-          className="text-lg font-semibold tracking-tight text-text-primary hover:text-brand transition-colors duration-200"
+          className="text-lg font-semibold tracking-tight transition-colors duration-200"
         >
-          Juan Lozano
+          <span className="text-white">Juan </span>
+          <span className="text-brand-accent">Lozano</span>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10 text-sm">
           <Link
             href="/#projects"
-            className="text-text-secondary hover:text-text-primary transition-colors duration-200"
+            className="text-white hover:text-brand-accent transition-colors duration-200"
           >
             Projects
           </Link>
 
           <Link
             href="/#about"
-            className="text-text-secondary hover:text-text-primary transition-colors duration-200"
+            className="text-white hover:text-brand-accent transition-colors duration-200"
           >
             About
           </Link>
 
           <button
             onClick={onContactClick}
-            className="text-text-secondary hover:text-brand transition-colors duration-200"
+            className="text-white hover:text-brand-accent transition-colors duration-200"
           >
             Contact
           </button>
         </div>
 
         {/* Mobile Button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-text-primary"
-        >
-          <div className="w-6 h-[2px] bg-text-primary mb-1"></div>
-          <div className="w-6 h-[2px] bg-text-primary mb-1"></div>
-          <div className="w-6 h-[2px] bg-text-primary"></div>
+        <button onClick={() => setOpen(!open)} className="md:hidden text-white">
+          <div className="w-6 h-[2px] bg-white mb-1"></div>
+          <div className="w-6 h-[2px] bg-white mb-1"></div>
+          <div className="w-6 h-[2px] bg-white"></div>
         </button>
       </div>
 
@@ -96,7 +94,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
         <div className="px-6 py-6 space-y-6 text-sm">
           <Link
             href="/#projects"
-            className="block text-text-secondary hover:text-text-primary transition-colors duration-200"
+            className="block text-white hover:text-brand-accent transition-colors duration-200"
             onClick={() => setOpen(false)}
           >
             Projects
@@ -104,7 +102,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
 
           <Link
             href="/about"
-            className="block text-text-secondary hover:text-text-primary transition-colors duration-200"
+            className="block text-white hover:text-brand-accent transition-colors duration-200"
             onClick={() => setOpen(false)}
           >
             About
@@ -112,7 +110,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
 
           <button
             onClick={onContactClick}
-            className="text-text-secondary hover:text-brand transition-colors duration-200"
+            className="text-white hover:text-brand-accent transition-colors duration-200"
           >
             Contact
           </button>
