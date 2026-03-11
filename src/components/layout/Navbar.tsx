@@ -11,6 +11,7 @@ interface NavbarProps {
 export default function Navbar({ onContactClick }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
@@ -23,6 +24,8 @@ export default function Navbar({ onContactClick }: NavbarProps) {
         setVisible(true);
       }
 
+      setScrolled(currentScrollY > 20);
+
       setLastScrollY(currentScrollY);
     };
 
@@ -32,8 +35,12 @@ export default function Navbar({ onContactClick }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 bg-brand border-b border-border transition-transform duration-300 ease-out ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out ${
         visible ? "translate-y-0" : "-translate-y-full"
+      } ${
+        scrolled
+          ? "bg-brand/95 backdrop-blur-md shadow-sm border-b border-border"
+          : "bg-brand"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
