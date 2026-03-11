@@ -16,7 +16,7 @@ export default function FeaturedProjects() {
       description:
         "Automation bots ecosystem currently in development. Follow the Telegram channel to stay updated with new releases and tools.",
       image: "/projects/mendor.png",
-      telegram: "https://t.me/yourchannel",
+      telegram: "https://t.me/+Ya1LP7W-iRgyNmFh",
       comingSoon: true,
     },
   ];
