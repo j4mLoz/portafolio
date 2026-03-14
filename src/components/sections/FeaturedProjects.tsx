@@ -12,7 +12,7 @@ export default function FeaturedProjects() {
       github: "https://github.com/j4mLoz/miyo",
     },
     {
-      title: "m3nd0R$H",
+      title: "Bot Services",
       description:
         "Automation bots ecosystem currently in development. Follow the Telegram channel to stay updated with new releases and tools.",
       image: "/projects/mendor.png",

@@ -25,7 +25,6 @@ export default function Navbar({ onContactClick }: NavbarProps) {
       }
 
       setScrolled(currentScrollY > 20);
-
       setLastScrollY(currentScrollY);
     };
 
@@ -49,9 +48,9 @@ export default function Navbar({ onContactClick }: NavbarProps) {
           href="/"
           onClick={() =>
             logEvent({
-              section: "navbar",
+              section: "NavBar",
               action: "click",
-              label: "logo",
+              label: "Logo",
             })
           }
           className="text-lg font-semibold tracking-tight transition-colors duration-200"
@@ -77,7 +76,15 @@ export default function Navbar({ onContactClick }: NavbarProps) {
           </Link>
 
           <button
-            onClick={onContactClick}
+            onClick={() => {
+              logEvent({
+                section: "NavBar",
+                action: "click",
+                label: "Contact",
+              });
+
+              onContactClick();
+            }}
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
             Contact
@@ -116,7 +123,16 @@ export default function Navbar({ onContactClick }: NavbarProps) {
           </Link>
 
           <button
-            onClick={onContactClick}
+            onClick={() => {
+              logEvent({
+                section: "navbar",
+                action: "click",
+                label: "contact",
+              });
+
+              onContactClick();
+              setOpen(false);
+            }}
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
             Contact
