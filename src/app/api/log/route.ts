@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Datos incompletos" }, { status: 400 });
     }
 
-    const event = `${section}.${action}.${label}`;
+    const event = `${section}:${action}:${label}`;
 
     const ip =
       req.headers.get("x-forwarded-for")?.split(",")[0] || "IP desconocida";
