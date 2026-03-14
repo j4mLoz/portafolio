@@ -10,10 +10,13 @@ export default function About() {
               About Me
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              I’m Juan, a FullStack developer who enjoys building things that
-              actually work in the real world. I like understanding how systems
-              behave, how products grow and how technology can support ideas
-              that start small but aim to become something bigger.
+              Soy Full Stack Engineer con más de 6 años construyendo sistemas
+              reales de forma independiente, enfocado en el desarrollo de
+              productos SaaS escalables y sostenibles en el tiempo. Mi enfoque
+              va más allá de implementar funcionalidades. Trabajo diseñando
+              arquitecturas claras, tomando decisiones técnicas fundamentadas y
+              construyendo sistemas que puedan evolucionar sin perder
+              estabilidad.
             </p>{" "}
           </div>
         </Reveal>

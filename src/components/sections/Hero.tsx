@@ -23,14 +23,15 @@ export default function Hero({ onContactClick }: HeroProps) {
 
               {/* Title */}
               <h1 className="text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight text-text-primary">
-                Building <span className="text-brand">scalable systems</span>{" "}
-                with clean architecture.
+                Building scalable SaaS systems with strong architectural
+                thinking
               </h1>
 
               {/* Description */}
               <p className="text-text-secondary text-lg max-w-md leading-relaxed">
-                I focus on building structured digital products where
-                architecture, performance and product thinking come first.
+                Full Stack Engineer specialized in TypeScript ecosystems
+                (Next.js, NestJS, PostgreSQL), focused on designing products
+                that are built to last.
               </p>
 
               {/* CTA */}
