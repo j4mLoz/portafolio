@@ -65,14 +65,14 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             href="/#projects"
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
-            Projects
+            Proyectos
           </Link>
 
           <Link
             href="/#about"
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
-            About
+            Perfil
           </Link>
 
           <button
@@ -87,7 +87,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             }}
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
-            Contact
+            Contacto
           </button>
         </div>
 
@@ -111,7 +111,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             className="block text-white hover:text-brand-accent transition-colors duration-200"
             onClick={() => setOpen(false)}
           >
-            Projects
+            Proyectos
           </Link>
 
           <Link
@@ -119,7 +119,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             className="block text-white hover:text-brand-accent transition-colors duration-200"
             onClick={() => setOpen(false)}
           >
-            About
+            Perfil
           </Link>
 
           <button
@@ -135,7 +135,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             }}
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
-            Contact
+            Contacto
           </button>
         </div>
       </div>

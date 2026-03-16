@@ -23,15 +23,15 @@ export default function Hero({ onContactClick }: HeroProps) {
 
               {/* Title */}
               <h1 className="text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight text-text-primary">
-                Building scalable SaaS systems with strong architectural
-                thinking
+                Diseño y desarrollo de sistemas SaaS escalables con pensamiento
+                arquitectónico
               </h1>
 
               {/* Description */}
               <p className="text-text-secondary text-lg max-w-md leading-relaxed">
-                Full Stack Engineer specialized in TypeScript ecosystems
-                (Next.js, NestJS, PostgreSQL), focused on designing products
-                that are built to last.
+                Ingeniero Full Stack enfocado en construir productos sólidos,
+                mantenibles y preparados para crecer, utilizando tecnologías
+                modernas del ecosistema TypeScript.
               </p>
 
               {/* CTA */}
@@ -47,7 +47,7 @@ export default function Hero({ onContactClick }: HeroProps) {
                     })
                   }
                 >
-                  Projects
+                  Proyectos
                 </Link>
 
                 <button
@@ -62,7 +62,7 @@ export default function Hero({ onContactClick }: HeroProps) {
                   }}
                   className="px-8 py-3 border border-border rounded-lg hover:border-brand hover:text-brand transition-all duration-200"
                 >
-                  Contact
+                  Contacto
                 </button>
               </div>
             </div>

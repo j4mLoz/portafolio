@@ -29,7 +29,7 @@ export default function Footer({ onContactClick }: FooterProps) {
           {/* Navegación */}
           <div className="space-y-6">
             <h4 className="text-sm font-medium uppercase tracking-wide text-white">
-              Navigation
+              Navegación
             </h4>
 
             <div className="flex flex-col gap-4 text-sm">
@@ -37,21 +37,21 @@ export default function Footer({ onContactClick }: FooterProps) {
                 href="/#projects"
                 className="text-white/70 hover:text-brand-accent transition-colors duration-200"
               >
-                Featured Projects
+                Proyectos
               </a>
 
               <a
                 href="/#about"
                 className="text-white/70 hover:text-brand-accent transition-colors duration-200"
               >
-                About
+                Perfil
               </a>
 
               <button
                 onClick={onContactClick}
                 className="text-left text-white/70 hover:text-brand-accent transition-colors duration-200"
               >
-                Contact
+                Contacto
               </button>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function Footer({ onContactClick }: FooterProps) {
           {/* Conexión */}
           <div className="space-y-6">
             <h4 className="text-sm font-medium uppercase tracking-wide text-white">
-              Connect
+              Contacto
             </h4>
 
             <div className="flex flex-col gap-4 text-sm">

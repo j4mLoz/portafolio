@@ -26,7 +26,7 @@ export default function FeaturedProjects() {
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-16">
-            Featured Projects
+            Proyectos
           </h2>
         </Reveal>
 
@@ -90,7 +90,7 @@ export default function FeaturedProjects() {
                           transition-colors duration-200
                           "
                         >
-                          View Project
+                          Ver Proyecto
                           <ArrowUpRight size={16} />
                         </a>
 
@@ -118,7 +118,7 @@ export default function FeaturedProjects() {
                         transition-colors duration-200
                         "
                       >
-                        Follow Updates
+                        Seguir Actualizaciones
                         <Send size={16} />
                       </a>
                     )}

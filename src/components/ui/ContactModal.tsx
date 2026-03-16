@@ -43,7 +43,7 @@ export default function ContactModal({ isOpen, onClose }: Props) {
                    transition-all duration-300 ease-out
                    opacity-0 scale-95 animate-[modalIn_0.3s_ease-out_forwards]"
       >
-        <h3 className="text-2xl font-semibold mb-8 tracking-tight">Contact</h3>
+        <h3 className="text-2xl font-semibold mb-8 tracking-tight">Contacto</h3>
 
         <div className="space-y-6">
           <a
