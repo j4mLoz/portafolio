@@ -8,7 +8,7 @@ export default function FeaturedProjects() {
       title: "MIYO",
       description: "Finance App.",
       image: "/projects/miyo.png",
-      demo: "https://financemiyo.com",
+      demo: "https://miyo-web.vercel.app/",
       github: "https://github.com/j4mLoz/miyo",
     },
     {
