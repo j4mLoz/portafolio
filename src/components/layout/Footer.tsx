@@ -1,10 +1,14 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
 interface FooterProps {
   onContactClick: () => void;
 }
 
 export default function Footer({ onContactClick }: FooterProps) {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-brand border-t border-border py-24">
       <div className="max-w-7xl mx-auto px-6">
@@ -17,8 +21,7 @@ export default function Footer({ onContactClick }: FooterProps) {
             </h3>
 
             <p className="text-sm text-white/70 max-w-sm leading-relaxed">
-              FullStack Developer focused on scalable systems, structured
-              architecture and product-driven engineering.
+              {t.footer.description}
             </p>
 
             <p className="text-xs text-white/50 pt-4">
@@ -29,7 +32,7 @@ export default function Footer({ onContactClick }: FooterProps) {
           {/* Navegación */}
           <div className="space-y-6">
             <h4 className="text-sm font-medium uppercase tracking-wide text-white">
-              Navegación
+              {t.footer.navigationTitle}
             </h4>
 
             <div className="flex flex-col gap-4 text-sm">
@@ -37,21 +40,21 @@ export default function Footer({ onContactClick }: FooterProps) {
                 href="/#projects"
                 className="text-white/70 hover:text-brand-accent transition-colors duration-200"
               >
-                Proyectos
+                {t.nav.projects}
               </a>
 
               <a
                 href="/#about"
                 className="text-white/70 hover:text-brand-accent transition-colors duration-200"
               >
-                Perfil
+                {t.nav.about}
               </a>
 
               <button
                 onClick={onContactClick}
                 className="text-left text-white/70 hover:text-brand-accent transition-colors duration-200"
               >
-                Contacto
+                {t.nav.contact}
               </button>
             </div>
           </div>
@@ -59,7 +62,7 @@ export default function Footer({ onContactClick }: FooterProps) {
           {/* Conexión */}
           <div className="space-y-6">
             <h4 className="text-sm font-medium uppercase tracking-wide text-white">
-              Contacto
+              {t.footer.contactTitle}
             </h4>
 
             <div className="flex flex-col gap-4 text-sm">

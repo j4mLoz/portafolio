@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { Mail, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface Props {
   isOpen: boolean;
@@ -9,6 +10,8 @@ interface Props {
 }
 
 export default function ContactModal({ isOpen, onClose }: Props) {
+  const { t } = useLanguage();
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -43,7 +46,9 @@ export default function ContactModal({ isOpen, onClose }: Props) {
                    transition-all duration-300 ease-out
                    opacity-0 scale-95 animate-[modalIn_0.3s_ease-out_forwards]"
       >
-        <h3 className="text-2xl font-semibold mb-8 tracking-tight">Contacto</h3>
+        <h3 className="text-2xl font-semibold mb-8 tracking-tight">
+          {t.contactModal.title}
+        </h3>
 
         <div className="space-y-6">
           <a
@@ -53,7 +58,7 @@ export default function ContactModal({ isOpen, onClose }: Props) {
                        hover:border-brand transition-colors duration-200"
           >
             <MessageCircle size={20} />
-            <span>WhatsApp</span>
+            <span>{t.contactModal.whatsapp}</span>
           </a>
 
           <a
@@ -62,7 +67,7 @@ export default function ContactModal({ isOpen, onClose }: Props) {
                        hover:border-brand transition-colors duration-200"
           >
             <Mail size={20} />
-            <span>Email</span>
+            <span>{t.contactModal.email}</span>
           </a>
         </div>
       </div>

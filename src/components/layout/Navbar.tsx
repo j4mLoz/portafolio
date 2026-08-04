@@ -3,12 +3,15 @@
 import { logEvent } from "@/lib/logger";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import LanguageToggle from "@/components/ui/LanguageToggle";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface NavbarProps {
   onContactClick: () => void;
 }
 
 export default function Navbar({ onContactClick }: NavbarProps) {
+  const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
@@ -65,14 +68,14 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             href="/#projects"
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
-            Proyectos
+            {t.nav.projects}
           </Link>
 
           <Link
             href="/#about"
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
-            Perfil
+            {t.nav.about}
           </Link>
 
           <button
@@ -87,16 +90,21 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             }}
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
-            Contacto
+            {t.nav.contact}
           </button>
+
+          <LanguageToggle />
         </div>
 
         {/* Mobile Button */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-white">
-          <div className="w-6 h-[2px] bg-white mb-1"></div>
-          <div className="w-6 h-[2px] bg-white mb-1"></div>
-          <div className="w-6 h-[2px] bg-white"></div>
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <LanguageToggle />
+          <button onClick={() => setOpen(!open)} className="text-white">
+            <div className="w-6 h-[2px] bg-white mb-1"></div>
+            <div className="w-6 h-[2px] bg-white mb-1"></div>
+            <div className="w-6 h-[2px] bg-white"></div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -111,7 +119,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             className="block text-white hover:text-brand-accent transition-colors duration-200"
             onClick={() => setOpen(false)}
           >
-            Proyectos
+            {t.nav.projects}
           </Link>
 
           <Link
@@ -119,7 +127,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             className="block text-white hover:text-brand-accent transition-colors duration-200"
             onClick={() => setOpen(false)}
           >
-            Perfil
+            {t.nav.about}
           </Link>
 
           <button
@@ -135,7 +143,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             }}
             className="text-white hover:text-brand-accent transition-colors duration-200"
           >
-            Contacto
+            {t.nav.contact}
           </button>
         </div>
       </div>

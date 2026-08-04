@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactModal from "@/components/ui/ContactModal";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 
 export default function ClientLayout({
   children,
@@ -14,7 +15,7 @@ export default function ClientLayout({
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
-    <>
+    <LanguageProvider>
       <Navbar onContactClick={() => setIsContactOpen(true)} />
 
       <main className="flex-1 pt-16">{children}</main>
@@ -26,6 +27,6 @@ export default function ClientLayout({
 
       <Footer onContactClick={() => setIsContactOpen(true)} />
       <ScrollToTop />
-    </>
+    </LanguageProvider>
   );
 }
