@@ -9,18 +9,18 @@ export default function LanguageToggle({ className = "" }: { className?: string 
     <button
       onClick={toggleLocale}
       aria-label="Cambiar idioma / Switch language"
-      className={`flex items-center text-xs font-semibold tracking-wide border border-white/30 rounded-full overflow-hidden ${className}`}
+      className={`flex items-center font-mono text-xs font-medium tracking-wide border border-line overflow-hidden ${className}`}
     >
       <span
         className={`px-2.5 py-1 transition-colors duration-200 ${
-          locale === "es" ? "bg-white text-brand" : "text-white/70"
+          locale === "es" ? "bg-ink text-bg-primary" : "text-ink/60"
         }`}
       >
         ES
       </span>
       <span
         className={`px-2.5 py-1 transition-colors duration-200 ${
-          locale === "en" ? "bg-white text-brand" : "text-white/70"
+          locale === "en" ? "bg-ink text-bg-primary" : "text-ink/60"
         }`}
       >
         EN

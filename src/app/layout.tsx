@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Oswald, Roboto, Roboto_Mono } from "next/font/google";
 import "@/app/globals.css";
 import ClientLayout from "@/components/layout/ClientLayout";
 import Footer from "@/components/layout/Footer";
 
-const inter = Inter({
+const oswald = Oswald({
   subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-oswald",
+  display: "swap",
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-roboto",
+  display: "swap",
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-roboto-mono",
   display: "swap",
 });
 
@@ -50,8 +67,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body className="bg-bg-primary text-text-primary">
+    <html
+      lang="es"
+      className={`${oswald.variable} ${roboto.variable} ${robotoMono.variable}`}
+    >
+      <body className="editorial-bg bg-bg-primary text-text-primary font-sans">
         <div className="min-h-screen flex flex-col">
           <ClientLayout>{children}</ClientLayout>
         </div>

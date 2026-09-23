@@ -1,29 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #141f2c;
+  --paper: #efe9df;
+  --line: #b9ae9b;
+  --accent: #d9731f;
 }
 
 @theme {
-  --color-bg-primary: #f8f9fa;
-  --color-bg-secondary: #f2f2f2;
-  --color-surface: #eaeaea;
-  --color-border: #dcdcdc;
+  /* Literal design tokens (also usable directly as bg-ink, text-paper, border-line, text-accent…) */
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
 
-  --color-text-primary: #111111;
-  --color-text-secondary: #5c5c5c;
+  /* Editorial surfaces */
+  --color-bg-primary: var(--paper);
+  --color-bg-secondary: #e7e0d2;
+  --color-surface: #e7e0d2;
+  --color-border: var(--line);
 
-  --color-brand: #1f2933;
-  --color-brand-hover: #6b7280;
-  --color-brand-accent: #6b7280;
-}
+  /* Text */
+  --color-text-primary: var(--ink);
+  --color-text-secondary: #6b6252;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Brand */
+  --color-brand: var(--ink);
+  --color-brand-soft: #e7e0d2;
+  --color-brand-accent: var(--accent);
+  --color-brand-accent-hover: #b85f16;
+  --color-brand-accent-soft: rgba(217, 115, 31, 0.15);
+
+  /* Type */
+  --font-sans: var(--font-roboto), system-ui, sans-serif;
+  --font-heading: var(--font-oswald), "Arial Narrow", sans-serif;
+  --font-body: var(--font-roboto), system-ui, sans-serif;
+  --font-mono: var(--font-roboto-mono), ui-monospace, monospace;
 }
 
 @keyframes modalIn {
@@ -34,11 +46,56 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-roboto), system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Global editorial backdrop: 80px blueprint grid + one diagonal accent beam
+   in the top corner. Applied once on body so every section shares it. */
+.editorial-bg {
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(20, 31, 44, 0.06) 0 1px,
+      transparent 1px 80px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(20, 31, 44, 0.06) 0 1px,
+      transparent 1px 80px
+    ),
+    linear-gradient(108deg, rgba(217, 115, 31, 0.22), transparent 45%);
+  background-repeat: repeat, repeat, no-repeat;
+  background-position: 0 0, 0 0, -10% -20%;
+  background-size: 80px 80px, 80px 80px, 90% 70%;
+}
+
+/* Highlighter block: the solid-accent "marker" treatment for a keyword
+   inside an Oswald headline. box-decoration-break keeps it clean across
+   line wraps. */
+.highlight-block {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 0 0.2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Underlined text link used everywhere in place of buttons */
+.editorial-link {
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.1em;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.editorial-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }

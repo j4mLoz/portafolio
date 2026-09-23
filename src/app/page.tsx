@@ -12,7 +12,6 @@ export default function Home() {
   return (
     <>
       <Hero onContactClick={() => setIsContactOpen(true)} />
-
       <About />
       <FeaturedProjects />
 

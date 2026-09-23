@@ -37,12 +37,12 @@ export default function Navbar({ onContactClick }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out ${
+      className={`fixed top-0 left-0 w-full z-50 border-b transition-all duration-300 ease-out ${
         visible ? "translate-y-0" : "-translate-y-full"
       } ${
         scrolled
-          ? "bg-brand/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-brand"
+          ? "border-line bg-bg-primary/90 backdrop-blur-md"
+          : "border-transparent bg-bg-primary/70 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -56,24 +56,24 @@ export default function Navbar({ onContactClick }: NavbarProps) {
               label: "Logo",
             })
           }
-          className="text-lg font-semibold tracking-tight transition-colors duration-200"
+          className="font-heading text-lg font-bold uppercase tracking-[-0.01em] transition-colors duration-200"
         >
-          <span className="text-white">Juan </span>
+          <span className="text-ink">Juan </span>
           <span className="text-brand-accent">Lozano</span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-10 text-sm">
+        <div className="hidden md:flex items-center gap-10 font-mono text-xs uppercase tracking-widest">
           <Link
             href="/#projects"
-            className="text-white hover:text-brand-accent transition-colors duration-200"
+            className="text-ink transition-colors duration-200 hover:text-brand-accent"
           >
             {t.nav.projects}
           </Link>
 
           <Link
             href="/#about"
-            className="text-white hover:text-brand-accent transition-colors duration-200"
+            className="text-ink transition-colors duration-200 hover:text-brand-accent"
           >
             {t.nav.about}
           </Link>
@@ -88,7 +88,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
 
               onContactClick();
             }}
-            className="text-white hover:text-brand-accent transition-colors duration-200"
+            className="text-ink transition-colors duration-200 hover:text-brand-accent"
           >
             {t.nav.contact}
           </button>
@@ -99,24 +99,24 @@ export default function Navbar({ onContactClick }: NavbarProps) {
         {/* Mobile Button */}
         <div className="md:hidden flex items-center gap-4">
           <LanguageToggle />
-          <button onClick={() => setOpen(!open)} className="text-white">
-            <div className="w-6 h-[2px] bg-white mb-1"></div>
-            <div className="w-6 h-[2px] bg-white mb-1"></div>
-            <div className="w-6 h-[2px] bg-white"></div>
+          <button onClick={() => setOpen(!open)} className="text-ink">
+            <div className="w-6 h-[2px] bg-ink mb-1"></div>
+            <div className="w-6 h-[2px] bg-ink mb-1"></div>
+            <div className="w-6 h-[2px] bg-ink"></div>
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden border-t border-border overflow-hidden transition-all duration-300 ${
+        className={`md:hidden border-t border-line overflow-hidden transition-all duration-300 ${
           open ? "max-h-60" : "max-h-0"
         }`}
       >
-        <div className="px-6 py-6 space-y-6 text-sm">
+        <div className="px-6 py-6 space-y-6 font-mono text-xs uppercase tracking-widest bg-bg-primary">
           <Link
             href="/#projects"
-            className="block text-white hover:text-brand-accent transition-colors duration-200"
+            className="block text-ink transition-colors duration-200 hover:text-brand-accent"
             onClick={() => setOpen(false)}
           >
             {t.nav.projects}
@@ -124,7 +124,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
 
           <Link
             href="/about"
-            className="block text-white hover:text-brand-accent transition-colors duration-200"
+            className="block text-ink transition-colors duration-200 hover:text-brand-accent"
             onClick={() => setOpen(false)}
           >
             {t.nav.about}
@@ -141,7 +141,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
               onContactClick();
               setOpen(false);
             }}
-            className="text-white hover:text-brand-accent transition-colors duration-200"
+            className="text-ink transition-colors duration-200 hover:text-brand-accent"
           >
             {t.nav.contact}
           </button>

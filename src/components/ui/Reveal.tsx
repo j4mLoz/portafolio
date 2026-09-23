@@ -1,36 +1,39 @@
 // components/ui/Reveal.tsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
 
-export default function Reveal({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+type Direction = "up" | "left" | "right" | "none";
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
+interface RevealProps {
+  children: React.ReactNode;
+  direction?: Direction;
+  delay?: number;
+  className?: string;
+}
 
-    if (ref.current) observer.observe(ref.current);
+const OFFSETS: Record<Direction, { x?: number; y?: number }> = {
+  up: { y: 24 },
+  left: { x: -24 },
+  right: { x: 24 },
+  none: {},
+};
 
-    return () => observer.disconnect();
-  }, []);
-
+export default function Reveal({
+  children,
+  direction = "up",
+  delay = 0,
+  className,
+}: RevealProps) {
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      }`}
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, ...OFFSETS[direction] }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

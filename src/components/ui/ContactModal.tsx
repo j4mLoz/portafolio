@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { Mail, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface Props {
@@ -37,37 +36,37 @@ export default function ContactModal({ isOpen, onClose }: Props) {
       {/* Overlay */}
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300"
+        className="absolute inset-0 bg-ink/30 backdrop-blur-sm transition-opacity duration-300"
       />
 
       {/* Card */}
       <div
-        className="relative bg-bg-primary border border-border rounded-2xl p-10 w-[90%] max-w-md
+        className="relative w-[90%] max-w-md border border-line bg-bg-primary p-10
                    transition-all duration-300 ease-out
                    opacity-0 scale-95 animate-[modalIn_0.3s_ease-out_forwards]"
       >
-        <h3 className="text-2xl font-semibold mb-8 tracking-tight">
+        <p className="mb-2 font-mono text-xs uppercase tracking-[0.18em] text-brand-accent">
+          {t.contactModal.title}
+        </p>
+        <h3 className="font-heading text-2xl font-bold uppercase tracking-[-0.01em] mb-8">
           {t.contactModal.title}
         </h3>
 
-        <div className="space-y-6">
+        <div className="space-y-5">
           <a
             href="https://wa.me/573007022596"
             target="_blank"
-            className="flex items-center gap-4 border border-border rounded-xl p-4
-                       hover:border-brand transition-colors duration-200"
+            rel="noopener noreferrer"
+            className="editorial-link block w-fit font-mono text-sm uppercase tracking-[0.14em] text-ink"
           >
-            <MessageCircle size={20} />
-            <span>{t.contactModal.whatsapp}</span>
+            {t.contactModal.whatsapp} →
           </a>
 
           <a
             href="mailto:juan.lozaa2812@gmail.com"
-            className="flex items-center gap-4 border border-border rounded-xl p-4
-                       hover:border-brand transition-colors duration-200"
+            className="editorial-link block w-fit font-mono text-sm uppercase tracking-[0.14em] text-ink"
           >
-            <Mail size={20} />
-            <span>{t.contactModal.email}</span>
+            {t.contactModal.email} →
           </a>
         </div>
       </div>

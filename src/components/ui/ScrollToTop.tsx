@@ -49,18 +49,14 @@ export default function ScrollToTop() {
       fixed bottom-8 right-8 z-50
       w-12 h-12
       flex items-center justify-center
-      rounded-full
-      bg-bg-secondary
-      border border-border
-      shadow-lg
-      text-text-primary
-      backdrop-blur-sm
-      
+      bg-bg-primary
+      border border-line
+      text-ink
+
       transition-all duration-300 ease-out
-      
-      hover:scale-110
-      hover:border-brand
-      hover:text-brand
+
+      hover:border-brand-accent
+      hover:text-brand-accent
       
       ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"}
       `}

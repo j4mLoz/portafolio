@@ -8,14 +8,37 @@ export interface Dictionary {
   };
   hero: {
     label: string;
-    headline: string;
+    statusLabel: string;
+    coordinates: string;
+    verticalKicker: string;
+    roleKicker: string;
+    index: string;
+    headline: {
+      prefix: string;
+      highlight: string;
+    };
     subheadline: string;
     ctaProjects: string;
     ctaContact: string;
+    linkedin: string;
   };
   about: {
     title: string;
-    body: string[];
+    index: string;
+    intro: string;
+    beatLabels: {
+      problem: string;
+      solution: string;
+      result: string;
+    };
+    beforeLabel: string;
+    afterLabel: string;
+    caseBefore: string;
+    caseAfter: string;
+    caseProblem: string;
+    caseSolution: string;
+    pullQuote: string;
+    closing: string;
     agencyLine: {
       prefix: string;
       highlight: string;
@@ -24,6 +47,7 @@ export interface Dictionary {
   };
   projects: {
     title: string;
+    index: string;
     viewProject: string;
     followUpdates: string;
     privateLabel: string;
@@ -47,11 +71,13 @@ export interface Dictionary {
       author: string;
       translatedNote: string;
     };
+    transmissionLabel: string;
   };
   footer: {
     description: string;
     navigationTitle: string;
     contactTitle: string;
+    index: string;
   };
   contactModal: {
     title: string;
@@ -69,19 +95,43 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     hero: {
       label: "Full Stack Engineer · Medellín, Colombia · Disponible para nuevas oportunidades",
-      headline: "Convierto operaciones desordenadas en sistemas que un negocio puede confiar",
+      statusLabel: "DISPONIBLE",
+      coordinates: "[ MEDELLÍN, CO ]",
+      verticalKicker: "Full Stack Developer — Medellín",
+      roleKicker: "Juan Lozano · Desarrollador Independiente",
+      index: "A/01 — HERO",
+      headline: {
+        prefix: "Convierto operaciones desordenadas en",
+        highlight: "sistemas que un negocio puede confiar",
+      },
       subheadline:
-        "6 años programando, el último entregando productos reales a clientes — desde sistemas de gestión que reemplazan el papel hasta automatización con IA. TypeScript de punta a punta.",
-      ctaProjects: "Ver Proyectos",
+        "3+ años programando, el último entregando productos reales a clientes — desde sistemas de gestión que reemplazan el papel hasta automatización con IA. TypeScript de punta a punta.",
+      ctaProjects: "Ver proyectos",
       ctaContact: "Hablemos",
+      linkedin: "LinkedIn",
     },
     about: {
       title: "Cómo trabajo",
-      body: [
-        "Llevo 6 años programando, pero el último año ha sido el que realmente importa: es cuando empecé a entregar software que resuelve problemas de negocio reales, no solo ejercicios de código.",
-        "El caso que mejor lo resume: un cliente con un restaurante que no tenía ningún control de su operación — ni en papel, ni en sistema. No sabía qué tan rentable era cada producto, ni cómo iba su caja día a día. Le construí un sistema a medida de inventario y flujo de caja, con métricas claras de rentabilidad por producto, además de bots de automatización para agendamiento y mensajería. Pasó de sentirse perdido a tener visibilidad total de su negocio.",
+      index: "A/02 — CÓMO TRABAJO",
+      intro:
+        "Llevo 3+ años programando, pero el último año ha sido el que realmente importa: es cuando empecé a entregar software que resuelve problemas de negocio reales, no solo ejercicios de código.",
+      beatLabels: {
+        problem: "Problema",
+        solution: "Solución",
+        result: "Resultado",
+      },
+      beforeLabel: "Antes",
+      afterLabel: "Después",
+      caseBefore: "Sin control de inventario, caja ni rentabilidad",
+      caseAfter: "Visibilidad total del negocio en tiempo real",
+      caseProblem:
+        "El caso que mejor lo resume: un cliente con un restaurante que no tenía ningún control de su operación — ni en papel, ni en sistema. No sabía qué tan rentable era cada producto, ni cómo iba su caja día a día.",
+      caseSolution:
+        "Le construí un sistema a medida de inventario y flujo de caja, con métricas claras de rentabilidad por producto, además de bots de automatización para agendamiento y mensajería.",
+      pullQuote:
+        "Pasó de sentirse perdido a tener visibilidad total de su negocio.",
+      closing:
         "Eso es lo que busco en cada proyecto: no solo escribir código que funcione, sino entender el problema de negocio detrás y tomar las decisiones técnicas correctas para resolverlo de forma sostenible.",
-      ],
       agencyLine: {
         prefix: "Fuera de proyectos para clientes, también soy fundador de",
         highlight: "JALM Agency",
@@ -91,6 +141,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     projects: {
       title: "Proyectos",
+      index: "A/03 — PROYECTOS",
       viewProject: "Ver Proyecto",
       followUpdates: "Seguir Actualizaciones",
       privateLabel: "Proyecto privado del cliente",
@@ -118,12 +169,14 @@ export const dictionaries: Record<Locale, Dictionary> = {
         author: "Cliente, Restaurante Local",
         translatedNote: "",
       },
+      transmissionLabel: "Testimonio",
     },
     footer: {
       description:
         "Full Stack Developer enfocado en sistemas escalables, arquitectura estructurada e ingeniería orientada a producto.",
       navigationTitle: "Navegación",
       contactTitle: "Contacto",
+      index: "A/04 — CONTACTO",
     },
     contactModal: {
       title: "Contacto",
@@ -139,19 +192,43 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     hero: {
       label: "Full Stack Engineer · Medellín, Colombia · Open to new opportunities",
-      headline: "I turn messy operations into systems a business can trust",
+      statusLabel: "AVAILABLE",
+      coordinates: "[ MEDELLÍN, CO ]",
+      verticalKicker: "Full Stack Developer — Medellín",
+      roleKicker: "Juan Lozano · Independent Developer",
+      index: "A/01 — HERO",
+      headline: {
+        prefix: "I turn messy operations into",
+        highlight: "systems a business can trust",
+      },
       subheadline:
-        "6 years coding, the last one delivering real products to clients — from management systems that replace paper to AI automation. TypeScript end to end.",
-      ctaProjects: "View Projects",
-      ctaContact: "Let's Talk",
+        "3+ years coding, the last one delivering real products to clients — from management systems that replace paper to AI automation. TypeScript end to end.",
+      ctaProjects: "View projects",
+      ctaContact: "Let's talk",
+      linkedin: "LinkedIn",
     },
     about: {
       title: "How I Work",
-      body: [
-        "I've been coding for 6 years, but the last one is the one that actually matters: that's when I started shipping software that solves real business problems, not just code exercises.",
-        "The case that sums it up best: a restaurant client who had zero control over their operation — no paper, no system. They had no idea how profitable each product was, or how their cash flow looked day to day. I built them a custom inventory and cash flow platform, with clear profitability metrics per product, plus automation bots for scheduling and messaging. They went from feeling lost to having full visibility over their business.",
+      index: "A/02 — HOW I WORK",
+      intro:
+        "I've been coding for 3+ years, but the last one is the one that actually matters: that's when I started shipping software that solves real business problems, not just code exercises.",
+      beatLabels: {
+        problem: "Problem",
+        solution: "Solution",
+        result: "Result",
+      },
+      beforeLabel: "Before",
+      afterLabel: "After",
+      caseBefore: "No control over inventory, cash flow or profitability",
+      caseAfter: "Full real-time visibility into the business",
+      caseProblem:
+        "The case that sums it up best: a restaurant client who had zero control over their operation — no paper, no system. They had no idea how profitable each product was, or how their cash flow looked day to day.",
+      caseSolution:
+        "I built them a custom inventory and cash flow platform, with clear profitability metrics per product, plus automation bots for scheduling and messaging.",
+      pullQuote:
+        "They went from feeling lost to having full visibility over their business.",
+      closing:
         "That's what I look for in every project: not just writing code that works, but understanding the business problem behind it and making the right technical decisions to solve it sustainably.",
-      ],
       agencyLine: {
         prefix: "Outside of client projects, I'm also the founder of",
         highlight: "JALM Agency",
@@ -161,6 +238,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     projects: {
       title: "Projects",
+      index: "A/03 — PROJECTS",
       viewProject: "View Project",
       followUpdates: "Follow Updates",
       privateLabel: "Private client project",
@@ -188,12 +266,14 @@ export const dictionaries: Record<Locale, Dictionary> = {
         author: "Client, Local Restaurant",
         translatedNote: "(translated from Spanish)",
       },
+      transmissionLabel: "Testimonial",
     },
     footer: {
       description:
         "Full Stack Developer focused on scalable systems, structured architecture and product-driven engineering.",
       navigationTitle: "Navigation",
       contactTitle: "Contact",
+      index: "A/04 — CONTACT",
     },
     contactModal: {
       title: "Contact",
