@@ -21,7 +21,7 @@ export default function FeaturedProjects() {
       title: t.projects.items.miyo.title,
       description: t.projects.items.miyo.description,
       image: "/projects/miyo.png",
-      demo: "https://miyo-web.vercel.app/",
+      demo: "https://financemiyo.com",
       github: "https://github.com/j4mLoz/miyo",
     },
     {
