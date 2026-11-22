@@ -1,24 +1,38 @@
-# juanlozano.dev — Personal Portfolio
+# juanlozano.dev · Portafolio
 
-> My personal space on the web. Built to show who I am, 
-> what I build, and how I think.
+Mi espacio personal en la web: quién soy, qué construyo y cómo pienso.
 
-🔗 **Live:** [juanlozano.dev](https://juanlozano.dev)
+| | |
+|---|---|
+| **Producción** | https://juanlozano.dev |
+| **Estado** | En línea. Rediseño "editorial tech" aplicado |
+| **Stack** | Next.js 16 · React 19 · Tailwind 4 · TypeScript |
+| **Hosting** | Vercel |
 
----
+## Correrlo
 
-## 🛠 Built With
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build
+npm run start
+```
 
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- Vercel
+## Estructura
 
----
+```
+src/app/         páginas: inicio, projects, blog, contact, (admin), api
+src/components/  componentes de interfaz
+src/config/      contenido y configuración
+src/hooks/, src/lib/, src/types/
+public/          imágenes y recursos
+```
 
-## 👤 Author
+## Autor
 
-**Juan Lozano** · Full Stack Engineer from Medellín, Colombia  
-[juanlozano.dev](https://juanlozano.dev) 
-· [LinkedIn](https://linkedin.com/in/juanlozano-dev)
-· [GitHub](https://github.com/j4mLoz)
+**Juan Lozano** · Full Stack Engineer, Medellín, Colombia · [juanlozano.dev](https://juanlozano.dev) · [LinkedIn](https://linkedin.com/in/juanlozano-dev) · [GitHub](https://github.com/j4mLoz)
+
+## Documentación relacionada
+
+- README anterior: [`docs/REFERENCIA-README.md`](docs/REFERENCIA-README.md)
+- El proyecto MIYO enlaza a financemiyo.com.
